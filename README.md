@@ -8,7 +8,7 @@ You will need Python in order to use Reptyl. With Python installed, run the foll
 ## LAUNCH THE SHELL
 First of all know that a file called `config.json` must be present in the folder where you will initialize Reptyl. So create a file called config.json with the following content inside; `{"AI_settings": {"enabled":true ,"use_model":"GPT3:text-davinci-003", "apikey":"sk-XXX"},"console_preferences":{}}`
 Replace `sk-XXX` with your openai api-key.
-To launch Reptyl Shell just import the `reptyl` module with `import reptyl` in a Python shell. You will now be able to run natural language commands on your machine. **Warning: the commands executed will not ask for confirmation so they could potentially cause damage to your system if executed incorrectly.**
+To launch Reptyl Shell just import the `reptyl` module with `import reptyl.reptyl` in a Python shell. You will now be able to run natural language commands on your machine. **Warning: the commands executed will not ask for confirmation so they could potentially cause damage to your system if executed incorrectly.**
 
 Some examples of commands to test the Reptyl features are:
 
