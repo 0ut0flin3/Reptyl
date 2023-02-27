@@ -7,6 +7,8 @@ Reptyl is a cross-platform command line shell that supports execution of command
 The use of the Reptyl shell is intended for experienced developers, who are already very familiar with the use of a terminal. Reptyl will be really useful for this category of users, but it can still be a lot of fun to use for everyone else too. With this particular shell it is possible to issue commands in natural language. For example, you can create entire root folders with precise logics, you can run executables, create files of any kind, browse the internet, change settings on your pc simply by saying what you want to do in natural language. Don't worry about complicated commands. Reptyl will be able to understand even the most complicated things, you will be surprised by this. by default everything happens without root permissions. if you want to run the commands with root you will have to specify it in the command for example "run myprogram.exe with root privileges". Reptyl works on both Windows and all Unix systems, it will automatically recognize your operating system and commands will be executed based on that operating system.
 Reptyl is written and usable with Python, although standalone binaries will be available soon which means it can be used without Python
 
+**JOIN THE OFFICIAL DISCORD SERVER FOR ANY QUESTION OR COMMENT ABOUT REPTYL: https://discord.gg/JjKY9BPZtZ**
+
 ## INSTALLATION
 You will need Python in order to use Reptyl. With Python installed, run the following command to install Reptyl: `pip install -U reptyl`
 ## LAUNCH THE SHELL
