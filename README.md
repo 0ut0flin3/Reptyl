@@ -2,6 +2,24 @@
 Reptyl is a cross-platform command line shell that supports execution of commands in natural language 
 ![index3](https://user-images.githubusercontent.com/114559605/221433243-8ca74d72-b173-47c2-ba70-6827eb516b1f.png)
 
+If you found this software useful please consider a donation.
+You will help 0ut0flin3 improve this and other software.
+
+Bitcoin:  `17AnP1zuvLV9cQrGQi6H6qMLeWeujHzAYX`
+
+Monero: `82qjYLZj6XeTGjeUNm9AQVB78hVGStZd8YU1UKuvWz8QKAzFWZpBpEQFho3jrvUCNQPSqC9nYeEN3b7FQ5REPffNSA2WSDH`
+
+Solana: `6RX2ADdcNWZfaUfuGeHg86AYAoMuLF45Lbgfu3oNGh9i`
+
+Litecoin: `ltc1q4ft4ltjnyt8auqq4m5u7raatftu6mt5snst493`
+
+Ethereum: `0xF3A0246690947669A0bf68147Ba82AC8de576a56`
+
+Polygon / MYST : `0x45320b5B2a8f6073f4a92FFDF149861aBade4B4b`
+
+
+
+Thank you :-)
 
 ## INSTALLATION
 You will need Python in order to use Reptyl. With Python installed, run the following command to install Reptyl: `pip install -U reptyl`
