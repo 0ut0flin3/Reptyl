@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: reptyl
-Version: 0.0.0.2
-Summary: Neuralshare's node
+Version: 0.0.0.3
+Summary: Reptyl is a cross-platform command line shell that supports execution of commands in natural language
 Author: 0ut0flin3
 Author-email: 0ut0flin3 <0ut0flin3@protonmail.com>
 License:                                  Apache License
@@ -224,9 +224,9 @@ Reptyl is a cross-platform command line shell that supports execution of command
 ## INSTALLATION
 You will need Python in order to use Reptyl. With Python installed, run the following command to install Reptyl: `pip install -U reptyl`
 ## LAUNCH THE SHELL
-First of all know that a file called `config.json` must be present in the folder where you will initialize Reptyl. So create a file called config.json with the following content inside; `{"AI_settings": {"enabled":true ,"use_model":"GPT3:text-davinci-003", "apikey":"sk-XXX"},"console_preferences":{}}`
-Replace `sk-XXX` with your openai api-key.
-To launch Reptyl Shell just import the `reptyl` module with `import reptyl.reptyl` in a Python shell. You will now be able to run natural language commands on your machine. **Warning: the commands executed will not ask for confirmation so they could potentially cause damage to your system if executed incorrectly.**
+To launch Reptyl Shell just import the `reptyl` module with `import reptyl.reptyl` in a Python shell. A new configuration file  will be created if it doesn't exists in the current working directory. Edit your configuration with your choices before restarting Reptyl. Replace `sk-XXX` with your openai api-key, choose the `temperature` to use for executing commands and whether to display the code before it is executed setting `askconfirm` to `true` or `false`. You will now be able to run natural language commands on your machine. **do not execute commands if you do not understand what they do exactly, this could damage your computer**
+
+**Don't ask questions but give orders instead**
 
 Some examples of commands to test the Reptyl features are:
 

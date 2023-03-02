@@ -1,7 +1,7 @@
 __name__='Reptyl'
-__version__='0.0.0.1'
+__version__='0.0.0.3'
 __author__='0ut0flin3'
-__license__='Apache-2 L'
+__license__='Apache-2 License'
 import os
 import sys
 import platform
@@ -13,7 +13,12 @@ import openai
 ## TRY TO LOAD CONFIGURATION FILE AND EXIT IF ERROR
 global config_json
 if os.path.isfile("config.json")==False:
-    print(f"Can't load configuration: config.json : file doesn't exists in current working direcory")
+    print("Creating a new configuration file because one was not found...")
+    js={"AI_settings": {"enabled":True ,"use_model":"GPT3:text-davinci-003", "apikey":"sk-XXX","temperature":1},"console_preferences":{"askconfirm":False}}
+    f=open("config.json","w")
+    json.dump(js,f)
+    f.close()
+    print("Generated new configuration in "+os.getcwd()+"\n\nEdit configuration with your choices and restart the app")
     sys.exit()
 try:
     config_json=json.load(open("config.json"))
@@ -21,6 +26,9 @@ except Exception as ex:
     print(ex)
     sys.exit()
 ####################################################
+
+global TEMPERATURE;TEMPERATURE=config_json["AI_settings"]["temperature"]
+global ASKCONFIRM;ASKCONFIRM=config_json["console_preferences"]["askconfirm"]
 
 
 
@@ -45,7 +53,7 @@ class Network():
 PRE={f'''
 the info of my computer: {Device.info} 
 the info of my network: {Network.name}, {Network.host}
-if I ask you to do some actions on my computer, always reply with the python code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line.
+if I ask you to do some actions on my computer, always reply with the python code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line. If I ask you a question don't do anything and say that you accept only orders and no questions.
 ''':"Ok, I will do"}
 
 class Gpt3():
@@ -66,7 +74,7 @@ class Gpt3():
             
             
             prompt="Human: "+list(PRE.keys())[0]+"\nAI:"+list(PRE.values())[0]+"\n"+"Human: "+pr+"\nAI:\n",
-            temperature=1,
+            temperature=TEMPERATURE,
             max_tokens=3500,
             top_p=1,
             
@@ -101,8 +109,19 @@ class Console():
                     gpt3=Gpt3()
                     reply=gpt3.replyto(q)
                     reply=f'''{reply}'''
-                    #rint(reply)
-                    exec(reply)
+                    
+                    if ASKCONFIRM==True:
+                        ask=input("The following code will be executed:\n\n"+bcolors.OKCYAN+reply+bcolors.ENDC+"\n\nC to abort, anything else to continue:\n\n> ")
+                        if ask=="C" or ask=="c":
+
+                            
+                            pass
+                            print("Aborted.")
+                        else:
+                            exec(reply)
+                    else:
+                        exec(reply)
+                    
                 except Exception as ex:
                        print(ex)
 Console()
