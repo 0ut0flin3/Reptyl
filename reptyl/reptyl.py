@@ -1,5 +1,5 @@
 __name__='Reptyl'
-__version__='0.0.0.5'
+__version__='0.0.0.6'
 __author__='0ut0flin3'
 __license__='Apache-2 License'
 import os
@@ -14,13 +14,17 @@ import requests
 ## TRY TO LOAD CONFIGURATION FILE AND EXIT IF ERROR
 global config_json
 if os.path.isfile("config.json")==False:
-    print("Creating a new configuration file because one was not found...")
-    js={"AI_settings": {"enabled":True ,"use_model":"GPT3:text-davinci-003", "apikey":"sk-XXX","temperature":0},"console_preferences":{"askconfirm":True}}
+    set_api_key=input("Creating a new configuration file because one was not found...\n\nInsert you OpenAi api key: > ")
+    
+    js={"AI_settings": {"enabled":True ,"use_model":"GPT3:text-davinci-003", "apikey":set_api_key,"temperature":0},"console_preferences":{"askconfirm":True}}
     f=open("config.json","w")
     json.dump(js,f)
     f.close()
     print("Generated new configuration in "+os.getcwd()+"\n\nEdit configuration with your choices and restart the app")
-    sys.exit()
+    if os.name=='nt':
+       os.system('cls')
+    if os.name=='posix':
+       os.system('clear')
 try:
     config_json=json.load(open("config.json"))
 except Exception as ex:

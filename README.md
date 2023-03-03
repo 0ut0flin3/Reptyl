@@ -33,7 +33,7 @@ Thank you :-)
 
 ## LAUNCH THE SHELL
 To launch a Reptyl shell you can use Python or use one of the standalone binaries available <a href="http://reptyl.org/downoad">here</a> .
-If you want to use Python install Reptyl module with `pip install -U reptyl` then import the `reptyl` module with `import reptyl.reptyl` in a Python shell. A new configuration file  will be created if it doesn't exists in the current working directory. Edit your configuration with your choices before restarting Reptyl: replace `sk-XXX` with your openai api-key, choose the `temperature` to use for executing commands, choose if you want to be asked for confirmation before running the command, accompanied by a description of what the command will do setting `askconfirm` to `true` or `false`. (default is true) 
+If you want to use Python install Reptyl module with `pip install -U reptyl` then import the `reptyl` module with `import reptyl.reptyl` in a Python shell. You will be prompted to enter your OpenAI api key on first launch. A new configuration file  will be created if it doesn't exists in the current working directory. You can edit it choosing the `temperature` to use for executing commands, and if you want to be asked for confirmation before running the command, accompanied by a description of what the command will do setting `askconfirm` to `true` or `false`. (default is true) 
 You will now be able to run natural language commands on your machine. 
 **do not execute commands if you do not understand what they do exactly, this could damage your computer**
 
@@ -52,5 +52,4 @@ Some examples of commands to test the Reptyl features are:
 `Download a random photo from web and set it as desktop background`
 
 `create a python file in this directory with the code inside to hack the nasa site`
-
 
