@@ -1,20 +1,21 @@
 __name__='Reptyl'
-__version__='0.0.0.3'
+__version__='0.0.0.1'
 __author__='0ut0flin3'
-__license__='Apache-2 License'
+__license__='Apache-2 L'
 import os
 import sys
 import platform
 import socket
 import json
 import openai
+import requests
 
 
 ## TRY TO LOAD CONFIGURATION FILE AND EXIT IF ERROR
 global config_json
 if os.path.isfile("config.json")==False:
     print("Creating a new configuration file because one was not found...")
-    js={"AI_settings": {"enabled":True ,"use_model":"GPT3:text-davinci-003", "apikey":"sk-XXX","temperature":1},"console_preferences":{"askconfirm":False}}
+    js={"AI_settings": {"enabled":True ,"use_model":"GPT3:text-davinci-003", "apikey":"sk-XXX","temperature":0},"console_preferences":{"askconfirm":True}}
     f=open("config.json","w")
     json.dump(js,f)
     f.close()
@@ -29,7 +30,6 @@ except Exception as ex:
 
 global TEMPERATURE;TEMPERATURE=config_json["AI_settings"]["temperature"]
 global ASKCONFIRM;ASKCONFIRM=config_json["console_preferences"]["askconfirm"]
-
 
 
 class bcolors:
@@ -47,12 +47,14 @@ class Device():
 class Network():
     name=socket.gethostname()
     host=socket.gethostbyname(name)
+    ext_ip=requests.get("https://ident.me").content.decode()
     def is_connected(name=name,host=host):
         return True if 0 == os.system(f'ping {host} -n 3 -l 32 -w 3 > clear') else False
 
 PRE={f'''
 the info of my computer: {Device.info} 
 the info of my network: {Network.name}, {Network.host}
+my external IP address: {Network.ext_ip}
 if I ask you to do some actions on my computer, always reply with the python code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line. If I ask you a question don't do anything and say that you accept only orders and no questions.
 ''':"Ok, I will do"}
 
@@ -109,9 +111,11 @@ class Console():
                     gpt3=Gpt3()
                     reply=gpt3.replyto(q)
                     reply=f'''{reply}'''
+
+                    kk=Gpt3().replyto("Say what the following code do in naturale language:\n"+reply)
                     
                     if ASKCONFIRM==True:
-                        ask=input("The following code will be executed:\n\n"+bcolors.OKCYAN+reply+bcolors.ENDC+"\n\nC to abort, anything else to continue:\n\n> ")
+                        ask=input("Do you confirm to do the following stuff?\n\n"+bcolors.OKCYAN+kk+bcolors.ENDC+"\n\nC to abort, anything else to continue:\n\n> ")
                         if ask=="C" or ask=="c":
 
                             
