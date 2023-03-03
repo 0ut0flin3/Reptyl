@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: reptyl
-Version: 0.0.0.4
+Version: 0.0.0.5
 Summary: Reptyl is a cross-platform command line shell that supports execution of commands in natural language
 Author: 0ut0flin3
 Author-email: 0ut0flin3 <0ut0flin3@protonmail.com>
@@ -207,7 +207,7 @@ License:                                  Apache License
            limitations under the License.
         
         
-Project-URL: Homepage, https://github.com/neuralshare/node
+Project-URL: Homepage, https://github.com/0ut0flin3/Reptyl
 Keywords: reptyl,shell,command-line,gpt-3,natural language
 Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Programming Language :: Python

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reptyl"
-version = "0.0.0.4"
+version = "0.0.0.5"
 description = "Reptyl is a cross-platform command line shell that supports execution of commands in natural language"
 readme = "README.md"
 authors = [{ name = "0ut0flin3", email = "0ut0flin3@protonmail.com" }]
@@ -19,10 +19,10 @@ requires-python = ">=3"
 
 
 
-dependencies = ["openai==0.26.1"]
+dependencies = ["openai==0.27.0"]
 
 
 [project.urls]
-Homepage = "https://github.com/neuralshare/node"
+Homepage = "https://github.com/0ut0flin3/Reptyl"
 
 

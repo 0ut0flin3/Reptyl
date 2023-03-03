@@ -1,7 +1,7 @@
 __name__='Reptyl'
-__version__='0.0.0.1'
+__version__='0.0.0.5'
 __author__='0ut0flin3'
-__license__='Apache-2 L'
+__license__='Apache-2 License'
 import os
 import sys
 import platform
@@ -55,7 +55,7 @@ PRE={f'''
 the info of my computer: {Device.info} 
 the info of my network: {Network.name}, {Network.host}
 my external IP address: {Network.ext_ip}
-if I ask you to do some actions on my computer, always reply with the python code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line. If I ask you a question don't do anything and say that you accept only orders and no questions.
+if I ask you to do some actions on my computer, always reply with the python code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line. Always import needed modules. Show the output. If I ask you a question don't do anything and say that you accept only orders and no questions.
 ''':"Ok, I will do"}
 
 class Gpt3():
