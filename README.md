@@ -7,15 +7,12 @@ Reptyl is a cross-platform command line shell that supports execution of command
 ## INTRO
 
 The use of the Reptyl shell is intended for experienced developers, who are already very familiar with the use of a terminal. Reptyl will be really useful for this category of users, but it can still be a lot of fun to use for everyone else too. With this particular shell it is possible to issue commands in natural language. For example, you can create entire root folders with precise logics, you can run executables, create files of any kind, browse the internet, change settings on your pc simply by saying what you want to do in natural language. Don't worry about complicated commands. Reptyl will be able to understand even the most complicated things, you will be surprised by this. by default everything happens without root permissions. if you want to run the commands with root you will have to specify it in the command for example "run myprogram.exe with root privileges". Reptyl works on both Windows and all Unix systems, it will automatically recognize your operating system and commands will be executed based on that operating system.
-Reptyl is written and usable with Python, although standalone binaries will be available soon which means it can be used without Python
 
 **JOIN THE OFFICIAL DISCORD SERVER FOR ANY QUESTION OR COMMENT ABOUT REPTYL: https://discord.gg/JjKY9BPZtZ**
 
-## DONATE
-Reptyl is released open-source and free.
+
 If you found this software useful please consider a donation.
 You will help 0ut0flin3 improve this and other software.
-Thank you.
 
 Bitcoin:  `17AnP1zuvLV9cQrGQi6H6qMLeWeujHzAYX`
 
@@ -30,9 +27,16 @@ Ethereum: `0xF3A0246690947669A0bf68147Ba82AC8de576a56`
 Polygon / MYST : `0x45320b5B2a8f6073f4a92FFDF149861aBade4B4b`
 
 
-## LAUNCH THE SHELL
+
+Thank you :-)
+
+## HOW TO USE
+**important: don't use configuration files from older version of Reptyl but always use a new configuration file generated from the version you're actually using**
+
 To launch a Reptyl shell you can use Python or use one of the standalone binaries available <a href="http://reptyl.org/download">here</a> .
-If you want to use Python install Reptyl module with `pip install -U reptyl` then import the `reptyl` module with `import reptyl.reptyl` in a Python shell. You will be prompted to enter your OpenAI api key on first launch. A new configuration file  will be created if it doesn't exists in the current working directory. You can edit it choosing the `temperature` to use for executing commands, and if you want to be asked for confirmation before running the command, accompanied by a description of what the command will do setting `askconfirm` to `true` or `false`. (default is true) 
+If you want to use Python install Reptyl module with `pip install -U reptyl` then import the `reptyl` module with `import reptyl.reptyl` in a Python shell. You will be prompted to enter your OpenAI api key on first launch. A new configuration file  will be created if it doesn't exists in the current working directory. In the configuration you can set the `temperature` used for executing commands (defaut is `0`), and you can choose if be asked for confirmation before running the command, accompanied by a description of what the command will do . You can do this by setting `askconfirm` to `true` or `false`. (default is `true`)
+From Reptyl version 0.0.0.7, by default, the commands will be generated and executed directly in Bash (if you are on a Unix OS) or in Powershell (if you are on Windows) instead of Python, but for some people can still be useful to generate and execute commands in Python language for many reasons. You can enable Python language for executing commands in the Reptyl shell by setting `use_python` to `true` in the configuration. (default is `false`) If `use_python` is set to `false` Reptyl will use Bash or Powershell depending on the OS you are using.
+
 You will now be able to run natural language commands on your machine. 
 **do not execute commands if you do not understand what they do exactly, this could damage your computer**
 
@@ -40,15 +44,16 @@ You will now be able to run natural language commands on your machine.
 
 Some examples of commands to test the Reptyl features are:
 
-`open youtube and play a song from the 80s`
 
-`create a directory called mydir and create 10 more folders inside`
+`Create a directory called mydir and create 10 more folders inside`
 
-`tell me where I am`
+`Shutdown computer if internet goes off`
 
-`port forward on port 8080`
+`Take a screenshot and save it on the Desktop`
 
-`Download a random photo from web and set it as desktop background`
+`Set a dark theme`
 
-`create a python file in this directory with the code inside to hack the nasa site`
+`Show the incoming requests to my network in the last 24 hours`
+
+`Create a python file in this directory with the code inside to hack the NASA site`
 
