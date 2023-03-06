@@ -42,7 +42,7 @@ if os.name=='nt':
       OS_LANG='powershell scripting language'
 if os.name=='posix':
    if config_json["console_preferences"]["use_python"]==True:
-      OS_LANG=='Python'
+      OS_LANG='Python'
    else:
       OS_LANG='bash'
 
@@ -161,11 +161,14 @@ if I ask you to do some actions on my computer, always reply with the {OS_LANG} 
                                f.write(reply)
                                f.close()
                                os.system("PowerShell -File cmd.ps1")
+                            if OS_LANG=='Python':
+                               exec(reply)
                     else:
                          if OS_LANG=='bash':
                             os.system(reply)
                          if OS_LANG=='powershell scripting language':
                             PRE[f'''
+                            
 the info of my computer: {Device.info} 
 the info of my network: {Network.name}, {Network.host},
 
@@ -174,6 +177,8 @@ if I ask you to do some actions on my computer, always reply with the {OS_LANG} 
                             f.write(reply)
                             f.close()
                             os.system("PowerShell -File cmd.ps1")
+                         if OS_LANG=='Python':
+                            exec(reply)
                     
                 except Exception as ex:
                        print(ex)
