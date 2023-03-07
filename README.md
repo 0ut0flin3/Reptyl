@@ -10,6 +10,7 @@ The use of the Reptyl shell is intended for experienced developers, who are alre
 
 **JOIN THE OFFICIAL DISCORD SERVER FOR ANY QUESTION OR COMMENT ABOUT REPTYL: https://discord.gg/JjKY9BPZtZ**
 
+## DONATE 
 
 If you found this software useful please consider a donation.
 You will help 0ut0flin3 improve this and other software.
@@ -26,9 +27,7 @@ Ethereum: `0xF3A0246690947669A0bf68147Ba82AC8de576a56`
 
 Polygon / MYST : `0x45320b5B2a8f6073f4a92FFDF149861aBade4B4b`
 
-
-
-Thank you :-)
+Thank you
 
 ## HOW TO USE
 **important: don't use configuration files from older version of Reptyl but always use a new configuration file generated from the version you're actually using**
