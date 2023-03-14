@@ -1,7 +1,7 @@
 # Reptyl
 Reptyl is a cross-platform command line shell that supports execution of commands in natural language 
 
-## **video showing reptyl in action (with simple and not complex examples): https://www.youtube.com/watch?v=0ohmj7c72CI**
+## **video showing Reptyl in action (with simple and not complex examples): https://www.youtube.com/watch?v=0ohmj7c72CI**
 
 ![index3](https://user-images.githubusercontent.com/114559605/221433243-8ca74d72-b173-47c2-ba70-6827eb516b1f.png)
 
