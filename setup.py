@@ -1,6 +1,6 @@
 import setuptools
 setuptools.setup(name='Reptyl',
-    version='0.0.0.8',
+    version='0.0.0.9',
     author='0ut0flin3',
     description='Reptyl is a cross-platform command line shell that supports execution of commands in natural language ',
     packages=setuptools.find_packages(),

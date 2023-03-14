@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reptyl"
-version = "0.0.0.8"
+version = "0.0.0.9"
 description = "Reptyl is a cross-platform command line shell that supports execution of commands in natural language"
 readme = "README.md"
 authors = [{ name = "0ut0flin3", email = "0ut0flin3@protonmail.com" }]

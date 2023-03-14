@@ -1,5 +1,5 @@
 __name__='Reptyl'
-__version__='0.0.0.7'
+__version__='0.0.0.9'
 __author__='0ut0flin3'
 __license__='Apache-2 License'
 import os
@@ -37,7 +37,7 @@ global TEMPERATURE;TEMPERATURE=config_json["AI_settings"]["temperature"]
 global ASKCONFIRM;ASKCONFIRM=config_json["console_preferences"]["askconfirm"]
 if os.name=='nt':
    if config_json["console_preferences"]["use_python"]==True:
-      OS_LANG=='Python'
+      OS_LANG='Python'
    else:
       OS_LANG='powershell scripting language'
 if os.name=='posix':
