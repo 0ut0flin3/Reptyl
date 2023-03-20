@@ -1,5 +1,5 @@
 __name__='Reptyl'
-__version__='2.0.0.1'
+__version__='2.0.0.2'
 __author__='0ut0flin3'
 __license__='Apache-2 License'
 import os
@@ -7,16 +7,29 @@ import sys
 import platform
 import socket
 import json
-
+import ast
 import requests
+import time
+if os.name=='nt':
+   os.system('cls')
+if os.name=='posix':
+   os.system('clear')
+#### WARNING AND EXIT IF VERSION OF REPTYL YOU ARE USING IS OUTDATED
+from outdated import check_outdated
+is_outdated, latest_version = check_outdated('reptyl', __version__)
+if is_outdated:
 
+   print(f"\033[93m THIS VERSION OF REPTYL ({__version__}) IS OUT OF DATE.\nIt is really advisable to always use the latest version available\nUSE \033[0m\n\033[1m pip install reptyl=={latest_version} \033[0m\033[93m to update to the latest version\033[0m")
+   sys.exit()
+######################################
 
 ## TRY TO LOAD CONFIGURATION FILE AND EXIT IF ERROR
 global config_json
 if os.path.isfile("config.json")==False:
-    print("Creating a new configuration file because one was not found...")
+    print("Creating a new configuration file in current folder because one was not found...")
+    time.sleep(2)
     
-    js={"console_preferences":{"askconfirm":True, "use_python":False}}
+    js={"api":{"url":"https://api.openai.com/v1/chat/completions","key":""},"console_preferences":{"askconfirm":True, "use_python":False}}
     f=open("config.json","w")
     json.dump(js,f)
     f.close()
@@ -31,6 +44,12 @@ except Exception as ex:
     print(ex)
     sys.exit()
 ####################################################
+
+
+
+
+global payload
+
 global OS_LANG
 
 global ASKCONFIRM;ASKCONFIRM=config_json["console_preferences"]["askconfirm"]
@@ -82,9 +101,14 @@ class Gpt3():
     
     def replyto(self, pr):
         try:
-            session = requests.Session()
-            payload = {"model": "text-davinci-003", "messages": [{"role": "system", "content": PRE},{"role": "user", "content": pr}]}
-            r = requests.post("https://sharegpt.churchless.tech/share/v1/chat", headers = {'Content-Type': 'application/json'}, data= json.dumps(payload))
+            
+            if "api.openai.com" in config_json["api"]["url"]:
+               headers = {'Content-Type': 'application/json',"Authorization":f"Bearer {config_json['api']['key']}"}
+            else:
+               headers = {'Content-Type': 'application/json'}
+            
+            payload = {"model": "gpt-3.5-turbo", "messages": [{"role": "system", "content": PRE},{"role": "user", "content": pr}]}
+            r = requests.post(config_json["api"]["url"], headers = headers, data= json.dumps(payload))
             answer = json.loads(r.text)["choices"][0]['message']['content']
             answer=answer.replace("```python","")
             answer=answer.replace("```","")
@@ -108,12 +132,22 @@ class Console():
             os.system('clear')
       def __init__(self):
           self.clear()
-          print(f'''{bcolors.BOLD}
+          if config_json["api"]["key"]=="":
+             showinfo=f'''{bcolors.BOLD}
 |REPTYL v{__version__} [http://reptyl.org]|
 |LICENSE: {__license__}|
 |AUTHOR: {__author__}|
 |PROJECT HOME: https://github.com/0ut0flin3/Reptyl|{bcolors.ENDC}\n
-{bcolors.OKCYAN}Reptyl is released open-source and free. If you found this software useful please consider a donation {bcolors.ENDC}[{bcolors.HEADER} https://github.com/0ut0flin3/Reptyl/blob/main/README.md#donate{bcolors.ENDC} ] {bcolors.OKCYAN}You will help 0ut0flin3 improve this and other software. Thank you{bcolors.ENDC}\n\n''')
+{bcolors.OKCYAN}Reptyl is released open-source and free. If you found this software useful please consider a donation {bcolors.ENDC}[{bcolors.HEADER} https://github.com/0ut0flin3/Reptyl/blob/main/README.md#donate{bcolors.ENDC} ] {bcolors.OKCYAN}You will help 0ut0flin3 improve this and other software. Thank you{bcolors.ENDC}\n\n\n\n{bcolors.BOLD}USING API ENDPOINT: {bcolors.ENDC}{bcolors.OKGREEN}{config_json["api"]["url"]}{bcolors.ENDC} \nwarning: by using this API endpoint you need to provide an api-key.You didn't provide any api-key. Reptyl will not work. Add your api-key in your config.json and restart Reptyl or use a free api endpoint.{bcolors.ENDC}\n\n'''
+          else:
+               showinfo=f'''{bcolors.BOLD}
+|REPTYL v{__version__} [http://reptyl.org]|
+|LICENSE: {__license__}|
+|AUTHOR: {__author__}|
+|PROJECT HOME: https://github.com/0ut0flin3/Reptyl|{bcolors.ENDC}\n
+{bcolors.OKCYAN}Reptyl is released open-source and free. If you found this software useful please consider a donation {bcolors.ENDC}[{bcolors.HEADER} https://github.com/0ut0flin3/Reptyl/blob/main/README.md#donate{bcolors.ENDC} ] {bcolors.OKCYAN}You will help 0ut0flin3 improve this and other software. Thank you{bcolors.ENDC}\n\n\n\n{bcolors.BOLD}USING API ENDPOINT: {config_json["api"]["url"]}{bcolors.ENDC}\n\n'''
+          
+          print(showinfo)
           while True:
                 q=input(f'{bcolors.OKGREEN}{Device().info["USER"]}{bcolors.ENDC}{bcolors.BOLD}@{bcolors.ENDC}{bcolors.OKCYAN}REPTYL{bcolors.ENDC} $ ')       
                 try:
