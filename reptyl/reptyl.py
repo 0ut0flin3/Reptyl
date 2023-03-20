@@ -1,5 +1,5 @@
 __name__='Reptyl'
-__version__='2.0'
+__version__='2.0.0.1'
 __author__='0ut0flin3'
 __license__='Apache-2 License'
 import os
@@ -139,11 +139,11 @@ class Console():
                             if OS_LANG=='bash':
                                os.system(reply)
                             if OS_LANG=='powershell scripting language':
-                               PRE[f'''
+                               PRE=f'''
 the info of my computer: {Device.info} 
 the info of my network: {Network.name}, {Network.host},
 
-if I ask you to do some actions on my computer, always reply with the {OS_LANG} code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line.If I ask you a question don't do anything and say that you accept only orders and no questions. Only if I'm on Windows do this: never include "powershell -Command" before the command and make sure you load the following assemblies at the top of the code (only if needed)''']=PRE.pop(list(PRE.keys())[0])
+if I ask you to do some actions on my computer, always reply with the {OS_LANG} code,only the {OS_LANG} code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line.If I ask you a question don't do anything and say that you accept only orders and no questions. Only if I'm on Windows do this: never include "powershell -Command" before the command and make sure you load the following assemblies at the top of the code (only if needed). avoid printing description of the code but only print the code'''
                                f=open('cmd.ps1','w')
                                f.write(reply)
                                f.close()
@@ -154,12 +154,12 @@ if I ask you to do some actions on my computer, always reply with the {OS_LANG} 
                          if OS_LANG=='bash':
                             os.system(reply)
                          if OS_LANG=='powershell scripting language':
-                            PRE[f'''
+                            PRE=f'''
                             
 the info of my computer: {Device.info} 
 the info of my network: {Network.name}, {Network.host},
 
-if I ask you to do some actions on my computer, always reply with the {OS_LANG} code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line.If I ask you a question don't do anything and say that you accept only orders and no questions. Only if I'm on Windows do this: never include "powershell -Command" before the command and make sure you load the following assemblies at the top of the code (only if needed)''']=PRE.pop(list(PRE.keys())[0])
+if I ask you to do some actions on my computer, always reply with the {OS_LANG} code,only the {OS_LANG} code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line.If I ask you a question don't do anything and say that you accept only orders and no questions. Only if I'm on Windows do this: never include "powershell -Command" before the command and make sure you load the following assemblies at the top of the code (only if needed). avoid printing description of the code but only print the code'''
                             f=open('cmd.ps1','w')
                             f.write(reply)
                             f.close()
