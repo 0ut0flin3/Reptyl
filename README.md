@@ -1,7 +1,7 @@
 # Reptyl
 Reptyl is a cross-platform command line shell that supports execution of commands in natural language 
 
-## UPDATE March 20, 2023: The free API endpoint is currently down. From version 2.0.0.2 you can choose what API endpoint to use in your config.json. By default, api.openai.com is set. Please update your PyPi package**
+## UPDATE March 20, 2023: The free API endpoint is currently down. From version 2.0.0.2 you can choose what API endpoint to use in your config.json. By default, api.openai.com is set. Please update your PyPi package** ** Remember to remove the old config.json file and generating a new one from the latest version!!! **
 
 ## UPDATE March 20, 2023: Now you don't need an apikey to use Reptyl but it is free to use!**
 
