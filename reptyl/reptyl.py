@@ -1,5 +1,5 @@
 __name__='Reptyl'
-__version__='0.0.0.9'
+__version__='2.0'
 __author__='0ut0flin3'
 __license__='Apache-2 License'
 import os
@@ -7,20 +7,20 @@ import sys
 import platform
 import socket
 import json
-import openai
+
 import requests
 
 
 ## TRY TO LOAD CONFIGURATION FILE AND EXIT IF ERROR
 global config_json
 if os.path.isfile("config.json")==False:
-    set_api_key=input("Creating a new configuration file because one was not found...\n\nInsert you OpenAi api key: > ")
+    print("Creating a new configuration file because one was not found...")
     
-    js={"AI_settings": {"enabled":True ,"use_model":"GPT3:text-davinci-003", "apikey":set_api_key,"temperature":0},"console_preferences":{"askconfirm":True, "use_python":False}}
+    js={"console_preferences":{"askconfirm":True, "use_python":False}}
     f=open("config.json","w")
     json.dump(js,f)
     f.close()
-    print("Generated new configuration in "+os.getcwd()+"\n\nEdit configuration with your choices and restart the app")
+    
     if os.name=='nt':
        os.system('cls')
     if os.name=='posix':
@@ -33,7 +33,6 @@ except Exception as ex:
 ####################################################
 global OS_LANG
 
-global TEMPERATURE;TEMPERATURE=config_json["AI_settings"]["temperature"]
 global ASKCONFIRM;ASKCONFIRM=config_json["console_preferences"]["askconfirm"]
 if os.name=='nt':
    if config_json["console_preferences"]["use_python"]==True:
@@ -66,48 +65,36 @@ class Network():
     
     def is_connected(name=name,host=host):
         return True if 0 == os.system(f'ping {host} -n 3 -l 32 -w 3 > clear') else False
-
-PRE={f'''
+global PRE
+PRE=f'''
 the info of my computer: {Device.info} 
 the info of my network: {Network.name}, {Network.host},
 
-if I ask you to do some actions on my computer, always reply with the {OS_LANG} code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line.If I ask you a question don't do anything and say that you accept only orders and no questions. 
-''':"Ok, I will do"}
+if I ask you to do some actions on my computer, always reply with the {OS_LANG} code,only the {OS_LANG} code to use to do these actions.when the text must wrap use '\n', so as to always remain on one line.If I ask you a question don't do anything and say that you accept only orders and no questions. avoid printing description of the code but only print the code 
+'''
 
 class Gpt3():
     
-    def __init__(self, api_key=config_json["AI_settings"]["apikey"]):
-        self.api_key=api_key
+    def __init__(self):
+        pass
         
-        try:
-            openai.api_key=self.api_key
-        except Exception as ex:
-            print(ex)
+
     
-    def replyto(self, pr,model=config_json["AI_settings"]["use_model"][config_json["AI_settings"]["use_model"].find(":")+1:]):
+    def replyto(self, pr):
         try:
-        
-            response = openai.Completion.create(
-            model=model,
-            
-            
-            prompt="Human: "+list(PRE.keys())[0]+"\nAI:"+list(PRE.values())[0]+"\n"+"Human: "+pr+"\nAI:\n",
-            temperature=TEMPERATURE,
-            max_tokens=3500,
-            top_p=1,
-            
-            frequency_penalty=0.0,
-            presence_penalty=0.0,
-            stop=[" Human:", " AI:"],
-            
-            )
-            return response.choices[0].text
+            session = requests.Session()
+            payload = {"model": "text-davinci-003", "messages": [{"role": "system", "content": PRE},{"role": "user", "content": pr}]}
+            r = requests.post("https://sharegpt.churchless.tech/share/v1/chat", headers = {'Content-Type': 'application/json'}, data= json.dumps(payload))
+            answer = json.loads(r.text)["choices"][0]['message']['content']
+            answer=answer.replace("```python","")
+            answer=answer.replace("```","")
+            return answer
         except Exception as ex:
             print(ex)
 
 
 class Console():
-      def execute(cmd,use_AI=False):
+      def execute(cmd):
         try:
             reply=gpt3.replyto(cmd)
             print(reply)
@@ -141,7 +128,7 @@ class Console():
                     kk=Gpt3().replyto("Say what the following code do in naturale language:\n"+reply)
                     
                     if ASKCONFIRM==True:
-                        ask=input("Do you confirm to do the following stuff?\n\n"+bcolors.OKCYAN+kk+bcolors.ENDC+"\n"+reply+"\n\nC to abort, anything else to continue:\n\n> ")
+                        ask=input("Do you confirm to do the following stuff?\n\n"+bcolors.OKCYAN+kk+bcolors.ENDC+"\n"+reply+"\n\nC to abort, ENTER to continue:\n\n> ")
                         
                         if ask=="C" or ask=="c":
 
