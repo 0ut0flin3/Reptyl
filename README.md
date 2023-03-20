@@ -16,6 +16,45 @@ The use of the Reptyl shell is intended for experienced developers, who are alre
 
 **JOIN THE OFFICIAL DISCORD SERVER FOR ANY QUESTION OR COMMENT ABOUT REPTYL: https://discord.gg/JjKY9BPZtZ**
 
+
+## HOW TO USE
+
+To launch a Reptyl shell you can use Python. Use Python install Reptyl module with `pip install -U reptyl` then execute `python3 -m reptyl.reptyl` to launch the shell. A new configuration file  will be created if it doesn't exists in the current working directory. In the configuration you can choose if be asked for confirmation before running the command accompanied by a description of what the command will do or if you want to directly execute the command. You can do this by setting `askconfirm` to `true` or `false`. (default is `true`)
+By default, the commands will be generated and executed directly in Bash (if you are on a Unix OS) or in Powershell (if you are on Windows) instead of Python, but for some people can still be useful to generate and execute commands in Python language for many reasons. **You can enable Python language for executing commands in the Reptyl shell by setting `use_python` to `true` in the configuration. (default is `false`) 
+
+You will now be able to run natural language commands on your machine. 
+
+
+## IMPORTANT NOTES
+
+**If `use_python` is set to `false` Reptyl will use Bash or Powershell depending on the OS you are using.**
+
+**Using Python unlock more features e.g. image processing and all the stuff that Python can do!**
+
+**If you are on Windows, in way to use the Reptyl shell using Powershell, you have to set the execution policy to "unrestricted" before, by open a new Powershell with Administrator privilieges and typing: `Set-ExecutionPolicy Unrestricted`**
+
+**do not execute commands if you do not understand what they do exactly, this could damage your computer**
+
+**Don't ask questions but give orders instead**
+
+
+
+
+
+Some examples of commands to test the Reptyl features are:
+
+
+`Create a directory called mydir and create 10 more folders inside`
+
+`Take a screenshot and save it on the Desktop`
+
+`Set a dark theme`
+
+`Show the incoming requests to my network in the last 24 hours`
+
+`Create a python file in this directory with the code inside to hack the NASA site` (lol)
+
+
 ## DONATE 
 
 If you found this software useful please consider a donation.
@@ -34,28 +73,4 @@ Ethereum: `0xF3A0246690947669A0bf68147Ba82AC8de576a56`
 Polygon / MYST : `0x45320b5B2a8f6073f4a92FFDF149861aBade4B4b`
 
 Thank you
-
-## HOW TO USE
-
-To launch a Reptyl shell you can use Python. Use Python install Reptyl module with `pip install -U reptyl` then execute `python3 -m reptyl.reptyl` to launch the shell. A new configuration file  will be created if it doesn't exists in the current working directory. In the configuration you can choose if be asked for confirmation before running the command accompanied by a description of what the command will do or if you want to directly execute the command. You can do this by setting `askconfirm` to `true` or `false`. (default is `true`)
-By default, the commands will be generated and executed directly in Bash (if you are on a Unix OS) or in Powershell (if you are on Windows) instead of Python, but for some people can still be useful to generate and execute commands in Python language for many reasons. **You can enable Python language for executing commands in the Reptyl shell by setting `use_python` to `true` in the configuration. (default is `false`) If `use_python` is set to `false` Reptyl will use Bash or Powershell depending on the OS you are using.**
-**Using Python unlock more features e.g. image processing and all the stuff that Python can do!**
-
-You will now be able to run natural language commands on your machine. 
-**do not execute commands if you do not understand what they do exactly, this could damage your computer**
-
-**Don't ask questions but give orders instead**
-
-Some examples of commands to test the Reptyl features are:
-
-
-`Create a directory called mydir and create 10 more folders inside`
-
-`Take a screenshot and save it on the Desktop`
-
-`Set a dark theme`
-
-`Show the incoming requests to my network in the last 24 hours`
-
-`Create a python file in this directory with the code inside to hack the NASA site` (lol)
 
