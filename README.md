@@ -1,7 +1,10 @@
 # Reptyl
 Reptyl is a free-to-use and cross-platform command line shell that supports execution of commands in natural language 
 
-**UPDATE March 20, 2023: Now you don't need an apikey to use Reptyl but it is free to use!**
+# **pip install -U reptyl**
+# **python3 -m reptyl.reptyl**
+
+**UPDATE March 20, 2023: Reptyl v2.0 : Now you don't need an apikey to use Reptyl but it is free to use! ENJOY <3**
 
 ![index3](https://user-images.githubusercontent.com/114559605/221433243-8ca74d72-b173-47c2-ba70-6827eb516b1f.png)
 
