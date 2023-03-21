@@ -1,5 +1,5 @@
 __name__='Reptyl'
-__version__='2.0.0.2'
+__version__='2.0.0.3'
 __author__='0ut0flin3'
 __license__='Apache-2 License'
 import os
@@ -132,20 +132,20 @@ class Console():
             os.system('clear')
       def __init__(self):
           self.clear()
-          if config_json["api"]["key"]=="":
+          if config_json["api"]["key"]=="" and "openai.com" in config_json["api"]["url"]:
              showinfo=f'''{bcolors.BOLD}
 |REPTYL v{__version__} [http://reptyl.org]|
 |LICENSE: {__license__}|
 |AUTHOR: {__author__}|
 |PROJECT HOME: https://github.com/0ut0flin3/Reptyl|{bcolors.ENDC}\n
-{bcolors.OKCYAN}Reptyl is released open-source and free. If you found this software useful please consider a donation {bcolors.ENDC}[{bcolors.HEADER} https://github.com/0ut0flin3/Reptyl/blob/main/README.md#donate{bcolors.ENDC} ] {bcolors.OKCYAN}You will help 0ut0flin3 improve this and other software. Thank you{bcolors.ENDC}\n\n\n\n{bcolors.BOLD}USING API ENDPOINT: {bcolors.ENDC}{bcolors.OKGREEN}{config_json["api"]["url"]}{bcolors.ENDC} \nwarning: by using this API endpoint you need to provide an api-key.You didn't provide any api-key. Reptyl will not work. Add your api-key in your config.json and restart Reptyl or use a free api endpoint.{bcolors.ENDC}\n\n'''
+{bcolors.OKCYAN}Reptyl is released open-source and free. If you found this software useful please consider a donation {bcolors.ENDC}[{bcolors.HEADER} https://github.com/0ut0flin3/Reptyl/blob/main/README.md#donate{bcolors.ENDC} ] {bcolors.OKCYAN}You will help 0ut0flin3 improve this and other software. Thank you{bcolors.ENDC}\n\n\n\n{bcolors.BOLD}USING API ENDPOINT: {bcolors.ENDC}{bcolors.OKGREEN}{config_json["api"]["url"]}{bcolors.ENDC}\nHere is an updated list of free alternative  API endpoints URLs : https://github.com/0ut0flin3/gpt3-api-endpoints \n\nwarning: by using this API endpoint you need to provide an api-key.You didn't provide any api-key. Reptyl will not work. Add your api-key in your config.json and restart Reptyl or use a free api endpoint.{bcolors.ENDC}\n\n'''
           else:
                showinfo=f'''{bcolors.BOLD}
 |REPTYL v{__version__} [http://reptyl.org]|
 |LICENSE: {__license__}|
 |AUTHOR: {__author__}|
 |PROJECT HOME: https://github.com/0ut0flin3/Reptyl|{bcolors.ENDC}\n
-{bcolors.OKCYAN}Reptyl is released open-source and free. If you found this software useful please consider a donation {bcolors.ENDC}[{bcolors.HEADER} https://github.com/0ut0flin3/Reptyl/blob/main/README.md#donate{bcolors.ENDC} ] {bcolors.OKCYAN}You will help 0ut0flin3 improve this and other software. Thank you{bcolors.ENDC}\n\n\n\n{bcolors.BOLD}USING API ENDPOINT: {config_json["api"]["url"]}{bcolors.ENDC}\n\n'''
+{bcolors.OKCYAN}Reptyl is released open-source and free. If you found this software useful please consider a donation {bcolors.ENDC}[{bcolors.HEADER} https://github.com/0ut0flin3/Reptyl/blob/main/README.md#donate{bcolors.ENDC} ] {bcolors.OKCYAN}You will help 0ut0flin3 improve this and other software. Thank you{bcolors.ENDC}\n\n\n\n{bcolors.BOLD}USING API ENDPOINT: {config_json["api"]["url"]}{bcolors.ENDC}\nHere is an updated list of free alternative  API endpoints URLs : https://github.com/0ut0flin3/gpt3-api-endpoints\n'''
           
           print(showinfo)
           while True:
