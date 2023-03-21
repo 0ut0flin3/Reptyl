@@ -15,6 +15,20 @@ The use of the Reptyl shell is intended for experienced developers, who are alre
 
 **JOIN THE OFFICIAL DISCORD SERVER FOR ANY QUESTION OR COMMENT ABOUT REPTYL: https://discord.gg/JjKY9BPZtZ**
 
+## IMPORTANT NOTES
+
+**If `use_python` is set to `false` Reptyl will use Bash or Powershell depending on the OS you are using.**
+
+**Using Python unlock more features e.g. image processing and all the stuff that Python can do!**
+
+**If you are on Windows, in way to use the Reptyl shell using Powershell, you have to set the execution policy to "unrestricted" before, by open a new Powershell with Administrator privilieges and typing: `Set-ExecutionPolicy Unrestricted`**
+
+**do not execute commands if you do not understand what they do exactly, this could damage your computer**
+
+**Don't ask questions but give orders instead**
+
+**You don't need to add your api-key in your config.json if you are using a free API endpoint URL. You just need to add it if you are using the api.openai.com API endpoint url, otherwise it can remain empty**
+
 ## DONATE 
 
 If you found this software useful please consider a donation.
