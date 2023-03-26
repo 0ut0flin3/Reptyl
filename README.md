@@ -15,6 +15,12 @@ The use of the Reptyl shell is intended for experienced developers, who are alre
 
 **JOIN THE OFFICIAL DISCORD SERVER FOR ANY QUESTION OR COMMENT ABOUT REPTYL: https://discord.gg/JjKY9BPZtZ**
 
+## HOW TO USE
+
+To launch a Reptyl shell you can use Python. Use Python install Reptyl module with `pip install -U reptyl` then execute `python3 -m reptyl.reptyl` to launch the shell. A new configuration file  will be created if it doesn't exists in the current working directory. In the configuration you can choose if be asked for confirmation before running the command accompanied by a description of what the command will do or if you want to directly execute the command. You can do this by setting `askconfirm` to `true` or `false`. (default is `true`)
+By default, the commands will be generated and executed directly in Bash (if you are on a Unix OS) or in Powershell (if you are on Windows) instead of Python, but for some people can still be useful to generate and execute commands in Python language for many reasons. **You can enable Python language for executing commands in the Reptyl shell by setting `use_python` to `true` in the configuration. (default is `false`) If `use_python` is set to `false` Reptyl will use Bash or Powershell depending on the OS you are using.**
+**Using Python unlock more features e.g. image processing and all the stuff that Python can do!**
+
 ## IMPORTANT NOTES
 
 **If `use_python` is set to `false` Reptyl will use Bash or Powershell depending on the OS you are using.**
